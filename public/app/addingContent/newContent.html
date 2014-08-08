@@ -1,0 +1,236 @@
+<h1 class="page-header">Add Library Content</h1>
+
+<div class='col-sm-12' ng-controller="addingContentCtrl" class="container" >
+
+    <form name="addContentForm">
+        <accordion class='col-sm-7'>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+            <accordion-group heading="Identify The Content">
+                <h4 class='text-center'>Paste a URL below or choose a file to upload:</h4>
+                <div ng-controller="fileSelectionCtrl" class="f-flexC f-row f-wrap f-m-around">
+                    <div class="f-flexC f-row f-wrap f-m-around f-c-center">
+                        <div  ng-disabled="displaySettings.disableFileSelection" class="fileUpload btn btn-primary">
+    
+                            <span>Select File</span>
+                            <input ng-disabled="displaySettings.disableFileSelection" type="file" class="upload" ng-file-select="onFileSelect($files)"/>
+    
+                        </div>
+    
+                        <input  class="form-control" id='disabledInput' ng-show="imageDisplaySettings.fileSelected" ng-model="displaySettings.fileName" disabled type="text"/>
+    
+                        <input  class="form-control" ng-show="!imageDisplaySettings.fileSelected" name="pasteURL" ng-model="contentObject.webURL" type="URL" ng-change="onURLChange()">
+    
+                        <button ng-show="displaySettings.optionSelected" class="btn fileUpload" ng-click="reset()">Reset</button>
+                    </div>
+                    <br>
+                    <span class="text-danger" ng-show="displaySettings.uploadNonImage">You may only upload images at this time.</span>
+
+                    <!-- TODO: support for dropping files, canceling uploads. Good place to show upload progress? -->
+                    <!--  <div ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="optional-css-class"
+                          ng-show="dropSupported">drop files here</div>
+                    <div ng-file-drop-available="dropSupported=true" 
+                          ng-show="!dropSupported">HTML5 Drop File is not supported!</div>
+                    <button ng-click="upload.abort()">Cancel Upload</button> -->
+                    
+                   
+                    <div ng-show="imageDisplaySettings.fileSelected">
+                        <label>Preview:</label>
+                        <br>
+                        <img height="300px" ng-src="{{imageDisplaySettings.dataUrl.image}}">
+                    </div>
+                    
+                    <div ng-show="imageDisplaySettings.imageURLPresent">
+                        <label>Preview:</label>
+                        <br>
+                        <img height="300px" ng-src="{{contentObject.webURL}}">
+                    </div>
+
+                    <div ng-if="imageDisplaySettings.s3URL">
+                        <label>Preview:</label>
+                        <br>
+                        <img height="300px" ng-src="http://s3.amazonaws.com/singularity_bucket/{{contentObject.savedAs}}">
+                    </div>
+
+                </div>
+          
+            </accordion-group>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+            <accordion-group heading="Select Relevant Terms">
+            <h3 class='text-center'>Identify related terms:</h3> 
+<!--             <h5 class='text-center'>Think of relevant terms from each of the term groups listed below (as applicable)</h5>
+            <h5 class='text-center'>Be sure to include terms that are both very broad, and very specific.</h5> -->
+            <!-- TODO: set up drop channels that don't accept an element coming from its own container -->
+                <div >
+                    <div class="row margin5 f-flexC f-m-center margin20">
+                        <div ng-controller="termTypeAheadCtrl">
+                            <suggest focus-on="suggest" ng-show="displayOptions.addingNewTerm" class='form-control' on-select="openNewTermModal(data, contentTerms.selected)" input-model="displayOptions.DBTerm" lang="{{displayLanguage.languageCode}}"></suggest>
+                            <input focus-on="db" ng-show="!displayOptions.addingNewTerm" type="text" class="form-control" ng-model="displayOptions.DBTerm" typeahead-on-select="addToSelectedFromDB(contentTerms.selected)" typeahead="term as term.name for term in findTerm()" placeholder="Type term name here">
+                            <button ng-click="displayOptions.addingNewTerm = !displayOptions.addingNewTerm" class='btn btn-default btn-sm'>Change Source</button>
+                            <i class='text-muted fa fa-question-circle'></i>
+                        </div>
+                    </div>
+                    <div ui-on-Drop="" class="col-sm-12">
+    
+                        <div ng-controller="termSelectionCtrl" ng-include="'app/shared/termSelectionPartial.html'"></div>
+                       
+                    </div>
+                
+                </div>
+            </accordion-group>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+            <accordion-group heading="Add Meta Information (optional)">
+
+                <div>
+                    <div class="form-group" ng-class="{ 'has-error' : addContentForm.title.$invalid }">
+                        <label>title: 
+                        <span class='text-danger' ng-show="addContentForm.title.$invalid"> must be shorter than 100 characters</span></label>
+                        <br>
+                        <input ng-maxlength="100" class="form-control width100p" name='title' type="text" ng-model="contentObject.meta.title">
+                    </div>
+                    <!-- TODO: get description (text-angular) validation working -->
+                    <div class="form-group" ng-class="{ 'has-error' : addContentForm.description.$invalid }">
+                        <label>description:</label>
+                        <span class='text-danger' ng-show="addContentForm.description.$invalid"> must be shorter than 900 characters</span>
+                        <text-angular name="description" ng-maxlength='900' ng-click="tab.description = true" ta-toolbar="[['bold', 'italics', 'underline'],['redo', 'undo'],['insertLink', 'unlink']]" ng-model="contentObject.meta.description"></text-angular>
+                    </div>
+                    <br>
+                    <div class="form-group" ng-class="{ 'has-error' : addContentForm.value.$invalid }">
+                        <label>why is this content valuable?</label>
+                        <span class='text-danger' ng-show="addContentForm.value.$invalid"> must be shorter than 900 characters</span>
+                        <text-angular name="value" ng-maxlength='900' ng-click="tab.value = true" ta-toolbar="[['bold', 'italics', 'underline'],['redo', 'undo'],['insertLink', 'unlink']]" ng-model="contentObject.meta.value"></text-angular>
+                    </div>
+
+                   <!--  <div>
+                        <label>source:</label>
+                        <br>
+                        <div class="col-md-11 col-md-offset-1">
+                            <div class="form-group" ng-class="{ 'has-error' : addContentForm.sourceName.$invalid }">
+                                <strong>display name:</strong>
+                                <span class='text-danger' ng-show="addContentForm.sourceName.$invalid"> must be shorter than 50 characters</span>
+                                <br>
+                                <input ng-maxlength="50" name="sourceName" class="width100p form-control margin5" type="text" ng-model="contentObject.source.text">
+                            </div>                            
+                            
+                            <div class="form-group" ng-class="{ 'has-error' : addContentForm.sourceLink.$invalid && !addContentForm.sourceLink.$pristine }">
+                                <strong>link:</strong>
+                                <span class='text-danger' ng-show="addContentForm.sourceLink.$invalid"> must be a valid URL</span>
+                                <br>
+                                <input name="sourceLink" class="width100p form-control margin5" type="url" ng-model="contentObject.source.url">
+                            </div>
+                        </div>
+                    </div> -->
+
+                        <!-- <div>
+                            <label>relevant links</label>
+                            <br>
+                            <div class="col-md-11 col-md-offset-1">
+                                <label>url:</label>
+                                <input class="form-control width100p" type="url">
+                                <label>display text:</label>
+                                <input class="form-control width100p" type="text">
+                                <label>description:</label>
+                                <text-angular ng-model="contentObject.links[link].description" ta-toolbar="[['bold', 'italics', 'underline'],['redo', 'undo'],['insertLink', 'unlink']]"></text-angular>
+                                <button class="btn btn-default"><i class='fa fa-x'></i>delete</button>
+                            </div>
+                            <Button class="btn btn-default btn-sm" ng-model="contentObject.links">add link</Button>
+                        </div> -->
+                     
+                </div>
+
+            </accordion-group>
+
+        </accordion>
+    </form>
+
+
+
+
+
+
+
+
+
+    <div class="f-flexC f-column f-c-center f-m-center col-sm-5">
+        <div class="f-flexC  f-column f-m-between cardContainer panel panel-default margin5">
+            <div class="panel-heading">
+                <i class="fa fa-flag pull-right"></i>
+                <i class="fa fa-ban pull-right"></i>
+                <i class="fa fa-eye pull-right"> 0</i>
+                
+                <br>
+                <hr ng-show="contentObject.meta.title.length > 0" class="hr">
+                <h3 class="panel-title">{{contentObject.meta.title}}</h3>
+            </div>
+            <br>
+            <div class="f-flexC f-column f-m-center f-c-center imgContainer">    
+                <img ng-if="imageDisplaySettings.s3URL" ng-src="http://s3.amazonaws.com/singularity_bucket/{{contentObject.savedAs}}">          
+                <img ng-if="imageDisplaySettings.fileSelected" ng-src="{{imageDisplaySettings.dataUrl.image}}">
+                <img ng-if="imageDisplaySettings.imageURLPresent" ng-src="{{contentObject.webURL}}">                    
+            </div>
+
+            <tabset class='f-grow-1 f-flexC f-column margin10'>
+                <tab active="tab.terms" heading="Terms">
+                    <div class="f-flexC f-row f-wrap f-m-center ">
+                        <button ng-repeat="term in contentTerms.selected"class="btn btn-default btn-sm margin5">{{term.name}}</button>
+                    </div>
+                </tab>
+                <tab active="tab.description" heading="Description">
+                    <div ng-bind-html="contentObject.meta.description" class="margin10"></div>
+                </tab>
+                <tab active="tab.value" heading="Value">
+                    <div ng-bind-html="contentObject.meta.value" class="margin10"></div>
+                </tab>
+            </tabset>           
+        </div>
+        <br>
+        <button ng-click="submitNewContent()"class="btn btn-primary btn-large width80p">Add Content</button>
+    </div>
+</div>

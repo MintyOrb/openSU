@@ -1,0 +1,64 @@
+<div ng-controller="exploreCtrl" ng-intro-options="IntroOptions" ng-intro-method="StartIntro" ng-intro-onexit="onExit">
+    <button class="btn btn-primary col-sm-offset-2 marginBottom10" ng-click="StartIntro()">start tutorial</button>
+	<div ui-on-Drop="" >
+		<div id="step3" ng-controller="termTypeAheadCtrl" class="input-group col-sm-3 col-sm-offset-7 marginBottom20">
+		    <input type="text" class="form-control" ng-model="displayOptions.DBTerm" typeahead-on-select="addToSelectedFromDB(contentTerms.selected)" typeahead="term as term.name for term in findTerm()" placeholder="type search term here">
+		    <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
+		</div>
+
+	   	<ng-include ng-controller='termSelectionCtrl' class="col-sm-8 col-sm-offset-2 padding0" src="'app/shared/termSelectionPartial.html'"></ng-include>
+	   	
+	</div>
+	<br>
+	
+	<!-- <div class="col-sm-10 col-sm-offset-2">
+		<button class="btn btn-sm btn-default">List</button>
+		<button class="btn btn-sm btn-default">Panel</button>
+	</div> -->
+
+	<!-- <div class='row col-md-8 col-md-offset-2'>
+		Order by:
+		<button ng-click="" class='btn btn-default btn-sm margin10'>Date Added</button>
+		<button class='btn btn-default btn-sm margin10'>Something else</button>
+		<button class='btn btn-default btn-sm margin10'>another</button>
+	</div> -->
+
+	<div id="step7" class="cardsContainer f-flexC f-row f-wrap f-m-around">
+		<div class="f-flexC  f-column f-m-between cardContainer panel panel-default margin5" ng-repeat="content in returnedContent">
+			<div class="panel-heading">
+				<!-- TODO: add flagging, view count, and blocking functionality... -->
+				<i class="fa fa-flag pull-right"></i>
+				<i class="fa fa-ban pull-right"></i>
+			    <i class="fa fa-eye pull-right"> 0</i>
+                <br>
+                <hr ng-show="content.title.length > 0" class="hr">
+			    <h3 class="panel-title">{{content.title}}</h3>
+			</div>
+			<br>
+			<div class="f-flexC f-column f-m-center f-c-center imgContainer">
+				<a ng-href="content/{{content.UUID}}">
+					<img ng-src="http://s3.amazonaws.com/singularity_bucket/{{content.savedAs}}">
+				</a>
+			</div>
+			<tabset class='f-grow-1 f-flexC f-column margin10'>
+				<tab heading="Terms">
+
+					<div class="f-flexC f-row f-wrap f-m-center ">
+
+						<button ng-hide="term.meta.name.length === 0"ng-repeat="term in content.terms"class="noAction noOutline btn btn-default btn-sm margin5">{{term.meta | language:displayLanguage.languageCode}}</button>
+					</div>
+				</tab>
+				<tab ng-if="content.description.length > 0" heading="Description">
+					<div ng-bind-html="content.description" class="margin10"></div>
+				</tab>
+				<tab ng-if="content.value.length > 0" heading="value">
+					<div ng-bind-html="content.value" class="margin10"></div>
+				</tab>
+			</tabset>			
+		</div>
+	</div>
+	<div class="f-flexC f-m-center">
+		<button ng-hide="noMoreContent" ng-click="loadMoreContent();" class="btn btn-default margin20 ">load more content</button>
+		<p ng-show="noMoreContent" class="margin20"><em>Sorry, no more related content</em></p>
+	</div>
+</div>

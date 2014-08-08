@@ -1,0 +1,25 @@
+
+    <div class="modal-header">
+        <h1 class="text-center">Add new term</h3>  
+    </div>
+    <div class="modal-body">
+
+        <form class="f-flexC f-column f-m-around f-c-center">
+            <label> 
+                <h2>{{newTermMeta.name}}</h2>
+            </label>
+            <span>Add your term to relevant term groups:</span>
+            (click each group that applies)
+            <br>
+            <br>
+            <!-- <div class="well well-sm col-sm-8 f-flexC f-row f-wrap f-m-around f-c-center">
+                <button ng-repeat="group in newTermMeta.groups" btn-checkbox class="btn btn-sm btn-default margin5 noOutline" type="button" ng-model="group.included">{{group.name}}</button>
+            </div> -->
+            <label> Enter a concise (at most one sentence) definition for this term:</label>
+            <input class="form-control width80p" type="text" ng-model="newTermMeta.definition">
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="addToSelectedFromFB()">Add Term</button>
+        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>

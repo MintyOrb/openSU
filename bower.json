@@ -1,0 +1,33 @@
+{
+  "name": "bower_packages",
+  "version": "0.0.1",
+  "homepage": "https://github.com/bornytm/openSU",
+  "authors": [
+    "Tim Borny <bornytm@gmail.com>"
+  ],
+  "description": "openSU",
+  "main": "server.js",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "3.0.3",
+    "angular-bootstrap": "0.11.0",
+    "angular-loading-bar": "0.3.0",
+    "textAngular": "1.2.0",
+    "angular-http-auth": "1.2.1",
+    "ngAnimate-animate.css": "0.1.1",
+    "angular": "*",
+    "angular-animate": "*",
+    "angular-cookies": "*",
+    "angular-resource": "*",
+    "angular-route": "*",
+    "intro.js": "~0.7.1",
+    "angulartics": "~0.15.17"
+  }
+}

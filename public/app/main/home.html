@@ -1,0 +1,121 @@
+
+
+
+<div class="jumbotron">
+
+    <h1 class="text-center" >Welcome to Oaddo.</h1>
+    
+    <div id="jumboDiv" class="f-flexC f-row f-wrap f-c-center f-m-center well">
+     	<div>
+	      	<h4 class="red">omni</h4>
+	      	<img id="omniParen" src="img/paren.png">
+	      	<p id="everything">everything</p>
+      	</div>
+      	<div id="plusDiv"><i class="fa fa-plus fa-2x"></i></div>
+      	<div id="addoDiv" class="f-flexC f-row f-m-center f-c-center">
+      		<h4 class="red">addo</h4>
+      		<img id="addoParen" src="img/paren.png">
+      		<div id="addoList" class="pull-right">
+	      		<p>to inspire</p>
+	      		<p>to cause</p>
+	      		<p>to join</p>
+            <p>to bring</p>
+	      		<p>to give</p>
+	      		<!-- <p>to place</p>
+	      		<p>to add</p> -->
+      		</div>
+      	</div>
+    </div>
+    <p class="text-center">Lets find out what's worth learning.</p>
+    <br>
+    <p><a href="explore"class="btn btn-primary btn-lg width200 center" role="button">Explore the library</a></p>
+    <br>
+    <p class="text-center">or scroll down to learn more</p>
+    <div class="f-flexC f-m-center">
+      <i class="fa fa-angle-down fa-3x"></i>
+    </div>
+</div>
+
+
+
+
+<div class="col-md-12">
+  <h1 class="media-heading text-center">What is it about?</h1>
+  <br>
+  <p class="lead text-center">Oaddo is an aggregator and organizer of great content on the web with a focus on</p>
+  <div class="media col-md-10 col-md-offset-1">
+   <i class="fa fa-star fa-3x media-object pull-left"></i>
+    <div class="media-body">
+      <h2 class="media-heading">quality > quantity</h2>
+      <span class='red'>Home to the best content.</span> There is a lot of content out there. Members of Oaddo act as curators, adding content they find to be valuable, ranking and enhancing content that's already added, and flagging or removing content that is outdated or that does not meet standards.
+    </div>
+  </div>
+
+  <div class="media col-md-10 col-md-offset-1">
+  <i class="fa fa-puzzle-piece fa-3x media-object pull-left"></i>
+    <div class="media-body">
+      <h2 class="media-heading">exploratory learning</h2>
+      <span class='red'>Find content without knowing what to look for.</span> If you are researching a new topic or looking up something for the first time, it is impossible to know what the important concepts and related ideas are. Oaddo helps overcome this by suggesting relevant concepts, ideas, locations, and more as you specify your search criteria.
+    </div>
+  </div>
+
+  <div class="media col-md-10 col-md-offset-1">
+    <i class="fa fa-users fa-3x media-object pull-left"></i>
+    <div class="media-body">
+      <h2 class="media-heading">community driven development</h2>
+      <span class='red'>The members are the boss.</span> Any member of Oaddo can suggest new features or enhancements for existing ones. Through voting, members decide what features should be given priority for development. Members will also play an integral role in any decisions the Oaddo team makes.
+    </div>
+  </div>
+
+  <div class="media col-md-10 col-md-offset-1">
+  <i class="fa fa-globe fa-3x media-object pull-left"></i>
+    <div class="media-body">
+      <h2 class="media-heading">universality</h2>
+      <span class='red'>All cultures are invited to join the conversation.</span> Because of the huge insights that can be gained through interaction with individuals from diverse backgrounds, there has been a focus on internationalization from the beginning of Oaddo's development. It is already possible to explore the Oaddo library in more than 40 languages, but the body of the site still needs to be translated to make it truly accessible.
+    </div>
+  </div>
+</div>
+
+<div class="col-md-12 marginTop100">
+  <h1 class="media-heading text-center">How does it work?</h1>
+  <br>
+
+  <div class="f-flexC f-row f-c-center f-m-around f-wrap">
+    <div class="col-sm-6 col-sm-offset1">
+      <h2 class="media-heading">architecture</h2>
+      <span class='red'>Oaddo takes advantage of many modern web technologies and services.</span> Made with the traditional web technologies (HTML, CSS, and JavaScript), oaddo is hosted on <a href="http://www.heroku.com">Heroku</a> servers. Oaddo uses a <a href="http://www.nodejs.org">Node.js</a> backend and an <a href="http://www.angularjs.org">Angular.js</a> front-end. For data storage Oaddo uses the graph database <a href="http://www.neo4j.org">Neo4j</a> (hosted at <a href="http://www.graphenedb.com">grapheneDB</a>), and <a href="http://www.aws.amazon.com/s3/">AWS S3</a> for persistence file storage. Oaddo also takes advantage of many open source scripts, plugins, and modules for node.js, hapi.js, angular.js, and general web development.
+
+    </div>
+    <img width="400px" src="img/appStructure.png" alt="">
+  </div> 
+
+  <br>
+
+  <div class="f-flexC f-row f-c-center f-m-around f-wrap">
+    <div class="col-sm-6 col-sm-offset1">
+      <h2 class="media-heading">graph database</h2>
+      <span class='red'>Oaddo uses a graph database to relate content and terms to one another.</span> Graphs store data in nodes and relationships. In oaddo, content, terms, users, and more, are stored as nodes in the database. The relationships are the logical connections between them. Content is tagged with terms, users vote on content, users curate content and terms, etc. Queries can be written which will traverse the graph's nodes and relationships in order to pull out rich information.
+    </div>
+    <img width="300px" style="margin-left: 50px; margin-right:50px;"src="img/graphs.png" alt="">
+  </div>   
+
+  <br>
+
+  <div class="f-flexC f-row f-c-center f-m-around f-wrap">
+    <div class="col-sm-6 col-sm-offset1">
+      <h2 class="media-heading">translation</h2>
+      <span class='red'>Explore Oaddo in 40 languages.</span> Oaddo utilizes the strengths of graph databases to handle the internationalization of terms. The term nodes themselves have no language associated with them, but attached to them are nodes with all the available languages (with the translations coming from <a href="http://freebase.com">freebase</a>). In translating the rest of the site Oaddo will look to the community and will implement the wonderful <a href="http://angular-translate.github.io/">angular.js translate module.</a>
+    </div>
+    <img width="400px" src="img/translation.png" alt="">
+  </div>  
+
+  <br>
+  <br>
+
+  <p><a href="explore"class="btn btn-primary btn-lg width200 center" role="button">Explore the library</a></p>
+</div>
+
+
+  
+
+

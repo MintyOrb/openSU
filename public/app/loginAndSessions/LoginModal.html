@@ -1,0 +1,66 @@
+
+<div class="modal-header">
+    <h3 ng-hide="display.returningUser">Join</h3> 
+    <h3 ng-show="display.returningUser">Login</h3> 
+</div>
+<div class="modal-body row">
+
+    <form name="form.loginForm">   
+        <div class="f-flexC f-column f-m-center f-c-center col-sm-6">
+            <h4 ng-hide="display.returningUser">Sign Up</h4>
+            <h4 ng-show="display.returningUser">Sign In</h4>
+            <br>
+            <div class="form-group" ng-class="{ 'has-error' : form.loginForm.email.$invalid && !form.loginForm.email.$pristine }">
+                <label>email</label>
+                <br>
+                <input tabindex='1' type="email" ng-blur="checkEmail()" name="email" class="form-control" ng-model="user.email">
+            </div>
+            <div> 
+                <label>password
+                    <br>
+                    <input tabindex='2' class="form-control" type="password" ng-model="user.password">
+                </label>
+            </div>
+            <div>
+                <label ng-hide="display.returningUser">re-type password
+                    <br>
+                    <input tabindex='3' class="form-control" ng-blur="checkPass()" type="password" ng-model="user.checkPassword">
+                </label>
+            </div>
+            <div>
+                <label ng-hide="display.returningUser">alpha test code (required)
+                    <br>
+                    <input tabindex='3' class="form-control" ng-blur="checkCode()" type="text" ng-model="user.code">
+                </label>
+            </div>
+        </div>
+        <div class="f-flexC f-column f-m-center f-c-center col-sm-6">
+            <h4>Don't have an account?</h4> 
+            <br>
+            <span ng-show="display.returningUser" ng-click="display.returningUser = false;" class="btn btn-primary">Click here to sign up</span>
+            <span ng-hide="display.returningUser" ng-click="display.returningUser = true;display.requestCode = false;" class="btn btn-primary">I have an account</span>
+            <br>
+            <button ng-click="display.requestCode = true" ng-hide="display.returningUser || display.requestCode" class='btn btn-default'> request alpha code</button>
+            <div id="requestCodeWidth" class="f-flexC f-column f-m-center f-c-center"  ng-show="display.requestCode">
+                <label class="width100p">Email:
+                <input ng-model='request.email' class="form-control width100p" type='email'>
+                </label>
+                <br>
+                <textarea id="requestCodeWidth" ng-model="request.reason" class="form-control width100p" placeholder="Why are you interested in being an alpha tester?"></textarea>
+                <br>
+                <button ng-click="requestCode();display.requestCode = false" class="btn btn-primary">request code</button>
+                
+            </div>
+            <br>
+            <p class="text-danger">{{message}}</p>
+            <p class="text-danger" ng-hide="display.validEmail">invalid email address</p>
+            <p class="text-danger" ng-hide="display.validPass">passwords do not match</p>
+        </div>
+    </form>
+
+</div>
+<div class="modal-footer">
+    <button ng-hide="display.returningUser" tabindex='3' class="btn btn-primary" ng-click="create()">Join</button>
+    <button ng-show="display.returningUser" tabindex='3' class="btn btn-primary" ng-click="login(user.email, user.password)">Login</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

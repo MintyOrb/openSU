@@ -1,0 +1,426 @@
+
+
+/*Original Bootstrap's CSS depends on empty href attributes to style cursors for several components (pagination, tabs etc.). But in AngularJS adding empty href attributes to link tags will cause unwanted route changes. This is why we need to remove empty href attributes from directive templates and as a result styling is not applied correctly.*/
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+/**{outline: solid 1px;}*/
+
+
+/* override bootstrap 3 css*/
+.hr{margin:5px; border-top: 1px solid #D8D8D8;}*/
+.row{margin:0px;}
+.container {width:auto;}
+.form-control{
+	display:inline;
+	width:auto;
+}
+.well {
+  position: relative;
+  min-height: 70px;
+}
+.navbar {
+	z-index: 501; /*needs to be above content panel*/
+	border-radius: 4px;
+	margin-top: 10px;
+}
+.btn-default .badge {
+	background-color: #B3B3B3;
+}
+.media-heading {
+	font-weight: 200;
+}
+.media-object {
+	margin-top: 1px
+}
+.tab-content{
+	height: 110px;
+	overflow: scroll;
+	flex-grow:1;			-webkit-flex-grow:1;
+	border-bottom: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	border-left: 1px solid #ddd;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+.tab-content>.tab-pane {
+	margin-top: 10px
+}
+
+/* overwrite well default colored background to make the intro looks less funny*/
+.introjs-showElement{
+	background-color: white;
+}
+
+
+.noOutline:focus {
+	cursor: pointer;
+	outline: 0;
+}
+.noAction:hover {
+	cursor: pointer;
+	background-color: #fff;
+	border-color: #ccc;
+}
+.noAction:focus {
+	background-color: #fff;
+	border-color: #ccc;
+}
+.padding0{
+	padding:0;
+}
+
+.buttonSelected {
+	color: #333;
+	background-color: #ebebeb;
+	border-color: #adadad;
+	outline: 0;
+	-webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,0.125);
+	box-shadow: inset 0 3px 5px rgba(0,0,0,0.125);
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.offTheSide {
+	left: 20vw;
+	width:60wv;
+}
+
+/* lang icon */
+#langIcon {
+	margin-top: -8px;
+	margin-bottom: -5px;
+	margin-right: 10px;
+	width: 28px;
+}
+#langDropdown {
+	overflow: scroll;
+	max-height: 400px
+}
+/* home page jumbotron classes */
+h4 {display: inline;}
+#omniParen {
+	margin-top: -2px;
+	margin-left: -40px;
+	margin-right: -25px;
+	height: 100px;
+	overflow: hidden;
+	transform: scaleX(1);
+	-ms-transform: scaleX(1);
+	-webkit-transform: scaleX(1);
+}
+#everything {display: inline;}
+#plusDiv{
+	margin: 10px 50px -5px 50px;
+}
+@media (max-width: 650px) { #plusDiv {margin: 0px 235px -27px 200px;} }
+#addoParen {
+	height: 193px;
+	margin-top: 3px;
+	margin-left: -81px;
+	margin-right: -64px;
+	overflow: hidden;
+	transform: scaleX(.5);
+	-ms-transform: scaleX(.5);
+	-webkit-transform: scaleX(.5);
+}
+#addoList {margin-top: 2px;}
+.jumbotron {
+	background-color: white;
+}
+#jumboDiv {
+	border-radius: 15px;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 600px;
+	background: rgb(250, 250, 250);
+}
+#jumboDiv p {
+	height: 18px
+}
+.red {
+	color: rgb(219, 31, 31);
+}
+#addoDiv {
+	height: 205px;
+}
+
+#requestCodeWidth{max-width: 264px;}
+
+
+.cardsContainer {
+	width:100%;
+}
+.cardContainer {
+	width:300px;
+	min-height: 500px;
+}
+.imgContainer {
+	overflow: hidden;
+	max-height: 230px;
+	margin-bottom: 15px;
+}
+.imgContainer img {
+	max-width: 280px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/* css for sticky footer*/
+html, body {
+	height: 100%;
+}
+.page-wrap {
+  min-height: 100%;
+  margin-bottom: -50px; /*padding above margin*/
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.footer, .page-wrap:after {
+  /* .push must be the same height as footer */
+  height: 100px;
+}
+.footer {
+	margin: 0 20px 0 20px;
+	border-radius: 4px 4px 0 0;
+	border: 1px solid;
+	border-color: rgb(226, 226, 226);
+	background-color: rgba(228, 228, 228, 0.28);
+}
+
+
+#ng-pageslide {
+	border:1px solid rgb(119, 119, 119);
+    background: #eee;
+    border-top-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+	overflow: scroll;
+}
+.panelHeading {
+	padding: 10px;
+	outline: 1px solid rgb(119, 119, 119);
+	background-color: white;
+}
+.panelContent {
+	overflow: scroll;
+	margin:20px;
+}
+.metaTab{
+	color:black;
+	transition-duration : .5s;
+    webkit-transition-duration : .5s;
+    transition-property : color;
+}
+.metaTab:hover{
+	color:rgb(145, 145, 145);
+	text-decoration: underline;
+	transition-duration : .5s;
+    webkit-transition-duration : .5s;
+    transition-property : color;
+}
+.metaTabSelected {
+	color:rgb(145, 145, 145);
+	text-decoration: underline;
+	transition-duration : .5s;
+    webkit-transition-duration : .5s;
+    transition-property : color;
+}
+
+.openPanel {
+	width: 80px;
+	z-index: 20;
+	margin-top: 10vh;
+	margin-left: -30px;
+	position: absolute;
+}
+.videoWrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	top: 3vh;
+	margin-left: auto;
+	margin-right: auto;
+}
+.videoWrapper iframe {
+	top:0;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	right: 0;
+	transition-duration : .5s;
+    webkit-transition-duration : .5s;
+    transition-property : width, height, top;
+}
+
+.webHolder{
+	position: absolute;
+	width: 100vw;
+	top: 0;
+	right: 0;
+}
+.webHolder iframe {
+	transition-duration : .5s;
+    webkit-transition-duration : .5s;
+    transition-property : width, height, margin;
+	border-radius: 5px;
+	height: 94vh;
+	width: 95vw;
+	margin: 3vh 2.5vw 0 0;
+	float:right;
+}
+
+
+.marginBottom0 {margin-bottom: 0px;}
+.marginBottom10 {margin-bottom: 10px;}
+.marginBottom20 {margin-bottom: 20px;}
+.margin5 {margin:5px;}
+.margin10 {margin:10px;}
+.margin20 {margin:20px;}
+.marginTop10 {margin-top: 10px}
+.marginTop100 {margin-top: 100px}
+
+.marginLR10 {margin-left: 10px; margin-right: 10px;}
+
+.width50p {width: 50%}
+.width80p {min-width: 80%}
+.width100p {min-width: 100%}
+.width200 {width:200px;}
+
+.maxW100p {max-width: 100%}
+
+.ta-toolbar {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.ta-editor {
+	display:block;
+	width:100%;
+	height:110px;
+	overflow: auto;
+}
+
+.droppable{background-color:#e0e0e0;}
+.above{z-index: 2;position: relative;}
+.termBox {
+	min-height: 120px;
+	padding-bottom: 20px;
+}
+.background {
+	color:#d1d1d1; 
+	cursor: default; 
+	z-index: 0;
+	position: absolute; 
+ 	top: 0; 
+	left: 10;
+ 	margin-top: 15px;
+}
+.termWellLabel {
+	position: absolute;
+	right: 10px;
+	border-radius: 4px 4px 0 0 ;
+	border: 1px solid #e3e3e3;
+	background-color: white;
+	bottom: -1px;
+	padding: 0 5px 0 5px;
+}
+.termContainerBtn {
+	border-color: #e3e3e3;
+	z-index: 1;
+	border-bottom: none;
+	border-radius: 4px 4px 0 0;
+	margin-bottom: -2px;
+}
+.termGroupBtn {
+	border-color: #e3e3e3;
+	z-index: 1;
+	border-bottom: none;
+	border-radius: 4px 4px 0 0;
+	margin: 0px 2px 0px 2px;
+}
+.termGroupBox {
+	border-radius: 0 4px 0 0;
+	margin-bottom: -2px;
+}
+.whiteWellWithBtn {
+	border-top-left-radius: 0px;
+	background: white;
+
+}
+
+.fileUpload {
+	position: relative;
+	overflow: hidden;
+	margin: 10px;
+	margin-bottom: 10px;
+}
+.fileUpload input.upload {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	cursor: pointer;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+
+
+/* flexbox */
+.f-flexC { display: flex; 							display:-webkit-flex; }
+
+.f-row    { flex-direction: row;					-webkit-flex-direction: row; }
+.f-column { flex-direction: column;					-webkit-flex-direction: column; }
+
+.f-wrap   { flex-wrap: wrap; 						-webkit-flex-wrap: wrap; }
+.f-wrapReverse   { flex-wrap: wrap-reverse; 		-webkit-flex-wrap: wrap-reverse; }
+.f-nowrap { flex-wrap: nowrap; 						-webkit-flex-wrap: nowrap; }
+
+/*alignment along the main axis*/
+	/* M = main */
+.f-m-start   { justify-content: flex-start; 		-webkit-justify-content: flex-start; }
+.f-m-end     { justify-content: flex-end; 			-webkit-justify-content: flex-end; }
+.f-m-center  { justify-content: center; 			-webkit-justify-content: center; }
+.f-m-between { justify-content: space-between; 		-webkit-justify-content: space-between; }
+.f-m-around  { justify-content: space-around; 		-webkit-justify-content: space-around; }
+
+/*alignment along cross axis on the current line*/
+	/* C = cross */
+.f-c-start    { align-items: flex-start; 			-webkit-align-items: flex-start; }
+.f-c-end      { align-items: flex-end; 				-webkit-align-items: flex-end; }
+.f-c-center   { align-items: center; 				-webkit-align-items: center; }
+.f-c-baseline { align-items: baseline; 				-webkit-align-items: baseline; }
+.f-c-stretch  { align-items: stretch; 				-webkit-align-items: stretch; } 
+
+
+/*This aligns a flex container's lines within when there is extra space in the cross-axis*/
+/*Note: this property has no effect when the flexbox has only a single line.*/
+.f-multi-start   { align-content: flex-start; 			-webkit-align-content: flex-start; }
+.f-multi-end     { align-content: flex-end; 			-webkit-align-content: flex-end; }
+.f-multi-center  { align-content: center; 				-webkit-align-content: center; }
+.f-multi-between { align-content: space-between; 		-webkit-align-content: space-between; }
+.f-multi-around  { align-content: space-around; 		-webkit-align-content: space-around; }
+.f-multi-stretch { align-content: space-stretch; 		-webkit-align-content: space-stretch; }
+
+/*applys to child element*/
+	/*align-self: auto | flex-start | flex-end | center | baseline | stretch*/
+
+.f-grow-1 { flex-grow:1;			-webkit-flex-grow:1;}
+.f-grow-2 { flex-grow:2;			-webkit-flex-grow:2;}
+.f-grow-3 { flex-grow:3;			-webkit-flex-grow:3;}
+
+
+/* belongs to child elements */
+.f-self-start { align-self: flex-start; 			-webkit-align-self: flex-start; }
+.f-self-end { align-self: flex-end; 				-webkit-align-self: flex-end; }
+.f-self-center { align-self: center; 				-webkit-align-self: center; }
+.f-self-baseline { align-self: baseline; 			-webkit-align-self: baseline; }
+.f-self-stretch { align-self: stretch; 				-webkit-align-self: stretch; }
+.f-self-auto { align-self: auto; 					-webkit-align-self: auto; }  

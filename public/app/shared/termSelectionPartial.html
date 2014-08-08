@@ -1,0 +1,157 @@
+<div id="step1">
+
+    <div ng-mouseleave="relTerms = false" id="step5" class="f-flexC f-wrapReverse f-m-around ">
+        <div class="width100p" collapse="!relTerms">
+            <div class="well well-sm f-flexC f-wrapReverse f-m-around "ng-show="termGroup == 'ggc'">
+                <button class="btn btn-default btn-sm margin10 noOutline"
+                ng-click='addToFrom(contentTerms.selected,{},{name: "Water", UUID: "3675710f-d8c9-4045-ac72-c48048b73328"},{})'
+                >Water</button> 
+                <button class="btn btn-default btn-sm margin10 noOutline"
+                ng-click='addToFrom(contentTerms.selected,{},{name: "Energy", UUID: "1e99bb23-b79f-4001-b6d0-5299089bcf27"},{})'
+                >Energy</button> 
+                <button class="btn btn-default btn-sm margin10 noOutline"
+                ng-click='addToFrom(contentTerms.selected,{},{name: "Poverty", UUID: "12c5e4cc-b688-4b5b-ac8e-be90ffc0a4b3"},{})'
+                >Poverty</button> 
+                <button class="btn btn-default btn-sm margin10 noOutline"
+                ng-click='addToFrom(contentTerms.selected,{},{name: "Space", UUID: "1484ba3f-7534-4612-9f60-7b483b4311fc"},{})'
+                >Space</button> 
+                <button class="btn btn-default btn-sm margin10 noOutline"
+                ng-click='addToFrom(contentTerms.selected,{},{name: "Security", UUID: "3ea7502e-d54b-41a4-9341-0794e7771afa"},{})'
+                >Security</button> 
+                <button class="btn btn-default btn-sm margin10 noOutline"
+                ng-click='addToFrom(contentTerms.selected,{},{name: "Environment", UUID: "e2d31618-1e1e-4acc-a3d3-ab760dddb00f"},{})'
+                >Environment</button> 
+                <button class="btn btn-default btn-sm margin10 noOutline"
+                ng-click='addToFrom(contentTerms.selected,{},{name: "Food", UUID: "b219ba40-ca02-4567-96eb-7968e81c04cd"},{})'
+                >Food</button> 
+                <button class="btn btn-default btn-sm margin10 noOutline"
+                ng-click='addToFrom(contentTerms.selected,{},{name: "Health", UUID: "9352b1ca-9340-4422-bd24-12e89bdd882a"},{})'
+                >Health</button> 
+            </div>
+            <div class="well well-sm f-flexC f-wrapReverse f-m-around " ng-show="termGroup == 'expTech'">
+                <button class="btn btn-default btn-sm margin10 noOutline"
+                ng-click='addToFrom(contentTerms.selected,{},{name: "Biotechnology", UUID: "faae059f-7ecb-404f-a5f1-5f96791c4033"},{})'
+                >Biotechnology</button> 
+                <button class="btn btn-default btn-sm margin10 noOutline"
+                ng-click='addToFrom(contentTerms.selected,{},{name: "Artificial Intelligence", UUID: "21fab7b1-d4f7-4db2-8afb-9e39bfc0ea14"},{})'
+                >Artificial Intelligence</button> 
+                <button class="btn btn-default btn-sm margin10 noOutline"
+                ng-click='addToFrom(contentTerms.selected,{},{name: "3D Printing", UUID: "0e602678-79b8-40b3-8a01-9f423bfa33d5"},{})'
+                >3D Printing</button> 
+                <button class="btn btn-default btn-sm margin10 noOutline"
+                ng-click='addToFrom(contentTerms.selected,{},{name: "Nanotechnology", UUID: "1c2728bc-1a2a-48cc-b9bf-eb819e4f47f6"},{})'
+                >Nanotechnology</button> 
+                <button class="btn btn-default btn-sm margin10 noOutline"
+                ng-click='addToFrom(contentTerms.selected,{},{name: "Robotics", UUID: "65fcd904-f8f0-427f-aa06-47a1c0b90e10"},{})'
+                >Robotics</button> 
+            </div>
+            <div class="well well-sm f-flexC f-wrapReverse f-m-around " ng-show="termGroup == 'labs'">
+                <button class="btn btn-default btn-sm margin10 noOutline">Matternet</button> 
+                <button class="btn btn-default btn-sm margin10 noOutline">Made In Space</button> 
+                <button class="btn btn-default btn-sm margin10 noOutline">Modern Meadow</button> 
+                <button class="btn btn-default btn-sm margin10 noOutline">mirOculus</button> 
+                <button class="btn btn-default btn-sm margin10 noOutline">Escape Dynamics</button> 
+                <button class="btn btn-default btn-sm margin10 noOutline">Fellow Robots</button> 
+                <button class="btn btn-default btn-sm margin10 noOutline">Idea Co</button> 
+            </div>
+            <div class="well well-sm f-flexC f-wrapReverse f-m-around " ng-show="termGroup == 'community'">
+                <button ng-hide="gsp" class="btn btn-default btn-sm margin10 noOutline">Executive Program</button> 
+                <button ng-hide="gsp" class="btn btn-default btn-sm margin10 noOutline" ng-click="gsp = true" >Graduate Studies Program</button> 
+                
+                <div ng-show="gsp">
+                   
+                    <button class="btn btn-default btn-sm margin10 noOutline">2009</button> 
+                    <button class="btn btn-default btn-sm margin10 noOutline">2010</button> 
+                    <button class="btn btn-default btn-sm margin10 noOutline">2011</button> 
+                    <button class="btn btn-default btn-sm margin10 noOutline">2012</button> 
+                    <button class="btn btn-default btn-sm margin10 noOutline">2013</button> 
+                    <button class="btn btn-default btn-sm margin10 noOutline">2014</button> 
+                   
+                </div>
+            </div>
+        </div>
+        <div>
+            <button ng-mouseenter="relTerms = true; termGroup = 'ggc' "class="noOutline btn btn-sm btn-default margin10"  > Grand Global Challenges </button>
+            <button ng-mouseenter="relTerms = true; termGroup = 'expTech' "class="noOutline btn btn-sm btn-default margin10"  > Exponential Technologies </button>
+            <button ng-mouseenter="relTerms = true; termGroup = 'labs' "class="noOutline btn btn-sm btn-default margin10"  > SU Labs </button>
+            <button ng-mouseenter="relTerms = true; termGroup = 'community' "class="noOutline btn btn-sm btn-default margin10"  > Community </button>
+        </div>
+        <!-- <button class="noOutline btn btn-sm btn-default termGroupBtn" ng-class="{buttonSelected : filter.groups.all.included }" ng-click="filter.setAll(true)" > All </button> -->
+        <!-- <button class="noOutline btn btn-sm btn-default termGroupBtn" ng-class="{buttonSelected : !filter.groups.all.included && filter.groups.contentTypes.included }" ng-click="filter.selectGroup('content type')" > Content Types </button> -->
+        <!-- <button class="noOutline btn btn-sm btn-default termGroupBtn" ng-class="{buttonSelected : !filter.groups.all.included && filter.groups.disciplines.included }" ng-click="filter.selectGroup('discipline')" > Disciplines </button> -->
+        <!-- <button class="noOutline btn btn-sm btn-default termGroupBtn" ng-class="{buttonSelected : !filter.groups.all.included && filter.groups.sciences.included }" ng-click="filter.selectGroup('science')" > The Sciences </button> -->
+        <!-- <button class="noOutline btn btn-sm btn-default termGroupBtn" ng-class="{buttonSelected : !filter.groups.all.included && filter.groups.humanities.included }" ng-click="filter.selectGroup('humanities')" > Humanities </button> -->
+        <!-- <button class="noOutline btn btn-sm btn-default termGroupBtn" ng-class="{buttonSelected : !filter.groups.all.included && filter.groups.physicalObjects.included }" ng-click="filter.selectGroup('physical object')" > Physical Objects </button> -->
+        <!-- <button class="noOutline btn btn-sm btn-default termGroupBtn" ng-class="{buttonSelected : !filter.groups.all.included && filter.groups.locations.included }" ng-click="filter.selectGroup('location')" > Locations </button> -->
+        <!-- <button class="noOutline btn btn-sm btn-default termGroupBtn" ng-class="{buttonSelected : !filter.groups.all.included && filter.groups.concepts.included }" ng-click="filter.selectGroup('concept')" > Concepts </button> -->
+        <!-- <button class="noOutline btn btn-sm btn-default termGroupBtn" ng-class="{buttonSelected : !filter.groups.all.included && filter.groups.jargon.included }" ng-click="filter.selectGroup('jargon')" > Jargon </button> -->
+        <!-- <button class="noOutline btn btn-sm btn-default termGroupBtn" ng-class="{buttonSelected : !filter.groups.all.included && filter.groups.activities.included }" ng-click="filter.selectGroup('activity')" > Activities </button> -->
+    </div>
+    <div id="step4" ui-on-Drop="recievingHandler($data, contentTerms.related)" drop-channel="noneShallPass" drag-enter-class="droppable" class='well well-sm termBox'>
+        <div class="termWellLabel text-center">related</div>
+        <div class="f-flexC f-row f-m-around f-wrap">
+            <span ng-hide="contentTerms.related.length > 0" class="dn-fade text-muted background h3">no related</span>
+            <div ng-repeat="term in contentTerms.related" class="dropdown dn-bounce">
+                <div class="btn-group margin5">
+                
+                    <button ng-click="addToFrom(contentTerms.selected,contentTerms.related,term,$index)" ui-draggable="true" on-drop-success="dropFromHandler($index,contentTerms.related)" drag="term" class='btn btn-default'>{{term.name}} <span class="badge">{{term.connections}}</span></button>
+                    <button class='dropdown-toggle btn btn-default'><i class="fa fa-chevron-down"></i></button>
+                    <ul class='dropdown-menu'>
+                        <li><a ng-click="addToFrom(contentTerms.selected,contentTerms.related,term,$index)">add to search</a></li>
+                        <li><a ng-click="addToFrom(contentTerms.discarded,contentTerms.related,term,$index)">discard</a></li>
+                        <li ng-show="Login.loggedIn"><a ng-click="openTermModal(term)" >edit term groups</a></li>
+                        <li ng-show="Login.loggedIn"><a ng-click="openTermModal(term)" >open term page</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>   
+
+    <button ng-click="contentTerms.selected = []" class="btn btn-xs  btn-default noOutline termContainerBtn">clear all</button>
+    <div id="step2" ui-on-Drop="recievingHandler($data, contentTerms.selected)" drag-enter-class="droppable" class="well well-sm">
+        <div class="termWellLabel text-center">search</div>
+        
+        
+        <div class="f-flexC f-row f-m-center">
+            <span ng-hide="contentTerms.selected.length > 0"class="dn-fade text-muted background h3">search terms</span>
+            <div class="f-flexC f-row f-m-around f-wrap">
+
+                <div ng-repeat="term in contentTerms.selected" class="dropdown dn-bounce">
+                    <div class="btn-group margin5">
+                        <button ng-click="addToFrom(contentTerms.discarded,contentTerms.selected,term,$index)" ui-draggable="true" on-drop-success="dropFromHandler($index,contentTerms.selected)" drag="term" class='btn btn-default'>{{term.name}} <span class="badge">{{term.connections}}</span></button>
+                        <button class='dropdown-toggle btn btn-default'><i class="fa fa-chevron-down"></i></button>
+                        <!-- TOOD: get dropdown menu out of hidden overflow -->
+                        <ul class='dropdown-menu'>
+                            <li><a ng-click="addToFrom(contentTerms.discarded,contentTerms.selected,term,$index)">discard</a></li>
+                            <li ng-show="Login.loggedIn"><a ng-click="openTermModal(term)" >edit term groups</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <button ng-click="contentTerms.discarded = []" class="btn btn-xs  btn-default noOutline termContainerBtn">clear all</button>
+    <div id="step6" ui-on-Drop="recievingHandler($data, contentTerms.discarded)" drag-enter-class="droppable" class="well well-sm">
+        <div class="termWellLabel text-center">discarded</div>
+        <div class="f-flexC f-row f-m-center">
+            <span ng-hide="contentTerms.discarded.length > 0" class="dn-fade text-muted background h3">discarded terms</span>
+
+            <div class="f-flexC f-row f-m-around f-wrap">
+
+                <div ng-repeat="term in contentTerms.discarded" class="dropdown dn-bounce">
+                    <div class="btn-group btn-group-xs margin5">
+                        <button ng-click="addToFrom(contentTerms.selected,contentTerms.discarded,term,$index)" ui-draggable="true" on-drop-success="dropFromHandler($index,contentTerms.discarded)" drag="term" class='btn btn-default'>{{term.name}}</button>
+                        <button class='dropdown-toggle btn btn-default'><i class="fa fa-chevron-down"></i></button>
+                        <ul class='dropdown-menu'>
+                            <li><a ng-click="addToFrom(contentTerms.selected,contentTerms.discarded,term,$index)">add to search</a></li>
+                            <li ng-show="Login.loggedIn"><a ng-click="openTermModal(term)" >edit term groups</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
