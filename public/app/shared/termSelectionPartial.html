@@ -54,27 +54,20 @@
                 <button class="btn btn-default btn-sm margin10 noOutline">Fellow Robots</button> 
                 <button class="btn btn-default btn-sm margin10 noOutline">Idea Co</button> 
             </div>
-            <div class="well well-sm f-flexC f-wrapReverse f-m-around " ng-show="termGroup == 'community'">
-                <button ng-hide="gsp" class="btn btn-default btn-sm margin10 noOutline">Executive Program</button> 
-                <button ng-hide="gsp" class="btn btn-default btn-sm margin10 noOutline" ng-click="gsp = true" >Graduate Studies Program</button> 
-                
-                <div ng-show="gsp">
-                   
-                    <button class="btn btn-default btn-sm margin10 noOutline">2009</button> 
-                    <button class="btn btn-default btn-sm margin10 noOutline">2010</button> 
-                    <button class="btn btn-default btn-sm margin10 noOutline">2011</button> 
-                    <button class="btn btn-default btn-sm margin10 noOutline">2012</button> 
-                    <button class="btn btn-default btn-sm margin10 noOutline">2013</button> 
-                    <button class="btn btn-default btn-sm margin10 noOutline">2014</button> 
-                   
-                </div>
+            <div class="well well-sm f-flexC f-wrapReverse f-m-around " ng-show="termGroup == 'resourceTracks'">
+                <button class="btn btn-default btn-sm margin10 noOutline">Entrepreneurship</button> 
+                <button class="btn btn-default btn-sm margin10 noOutline">Design</button> 
+                <button class="btn btn-default btn-sm margin10 noOutline">Policy, Law, and Ethics</button> 
+                <button class="btn btn-default btn-sm margin10 noOutline">Future Studies</button> 
+                <button class="btn btn-default btn-sm margin10 noOutline">Finance and Economics</button> 
+            
             </div>
         </div>
         <div>
             <button ng-mouseenter="relTerms = true; termGroup = 'ggc' "class="noOutline btn btn-sm btn-default margin10"  > Grand Global Challenges </button>
             <button ng-mouseenter="relTerms = true; termGroup = 'expTech' "class="noOutline btn btn-sm btn-default margin10"  > Exponential Technologies </button>
             <button ng-mouseenter="relTerms = true; termGroup = 'labs' "class="noOutline btn btn-sm btn-default margin10"  > SU Labs </button>
-            <button ng-mouseenter="relTerms = true; termGroup = 'community' "class="noOutline btn btn-sm btn-default margin10"  > Community </button>
+            <button ng-mouseenter="relTerms = true; termGroup = 'resourceTracks' "class="noOutline btn btn-sm btn-default margin10"  > Resource Tracks </button>
         </div>
         <!-- <button class="noOutline btn btn-sm btn-default termGroupBtn" ng-class="{buttonSelected : filter.groups.all.included }" ng-click="filter.setAll(true)" > All </button> -->
         <!-- <button class="noOutline btn btn-sm btn-default termGroupBtn" ng-class="{buttonSelected : !filter.groups.all.included && filter.groups.contentTypes.included }" ng-click="filter.selectGroup('content type')" > Content Types </button> -->
