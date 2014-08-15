@@ -48,7 +48,9 @@
             <div class="well well-sm f-flexC f-wrapReverse f-m-around " ng-show="termGroup == 'labs'">
                 <button class="btn btn-default btn-sm margin10 noOutline">Matternet</button> 
                 <button class="btn btn-default btn-sm margin10 noOutline">Made In Space</button> 
-                <button class="btn btn-default btn-sm margin10 noOutline">Modern Meadow</button> 
+                 <button class="btn btn-default btn-sm margin10 noOutline"
+                ng-click='addToFrom(contentTerms.selected,{},{name: "Modern Meadow", UUID: "e6fba45e-424e-4bbb-9ea8-87485b55cd39"},{})'
+                >Modern Meadow</button> 
                 <button class="btn btn-default btn-sm margin10 noOutline">mirOculus</button> 
                 <button class="btn btn-default btn-sm margin10 noOutline">Escape Dynamics</button> 
                 <button class="btn btn-default btn-sm margin10 noOutline">Fellow Robots</button> 
@@ -93,7 +95,7 @@
                         <li><a ng-click="addToFrom(contentTerms.selected,contentTerms.related,term,$index)">add to search</a></li>
                         <li><a ng-click="addToFrom(contentTerms.discarded,contentTerms.related,term,$index)">discard</a></li>
                         <li ng-show="Login.loggedIn"><a ng-click="openTermModal(term)" >edit term groups</a></li>
-                        <li ng-show="Login.loggedIn"><a ng-click="openTermModal(term)" >open term page</a></li>
+                        <li ng-show="Login.loggedIn"><a ng-click="openTermModal(term)" > term page</a></li>
                     </ul>
                 </div>
             </div>
@@ -125,7 +127,7 @@
         </div>
     </div>
 
-    <button ng-click="contentTerms.discarded = []" class="btn btn-xs  btn-default noOutline termContainerBtn">clear all</button>
+    <!-- <button ng-click="contentTerms.discarded = []" class="btn btn-xs  btn-default noOutline termContainerBtn">clear all</button>
     <div id="step6" ui-on-Drop="recievingHandler($data, contentTerms.discarded)" drag-enter-class="droppable" class="well well-sm">
         <div class="termWellLabel text-center">discarded</div>
         <div class="f-flexC f-row f-m-center">
@@ -146,5 +148,5 @@
                 
             </div>
         </div>
-    </div>
+    </div> -->
 </div>

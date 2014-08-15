@@ -4,12 +4,11 @@
 </div>
 <div ng-init="display.changesNotMade = true" class="modal-body row">
 
-   <p><strong>{{term.name}}</strong> is connected to <strong>{{term.connections}}</strong> pieces of content and is in the following groups:</p>
-    <div ng-repeat="group in term.groups" class="btn-group btn-group-xs margin5">
-      <button ng-class="{ 'buttonSelected' : group.included }" class="btn noOutline btn-default noAction" type="button">{{group.name}}</button>
-      <button ng-if="group.included" ng-click="display.changesNotMade = false; term.groupObj.removeGroup(group.name)" class="btn btn-default">-</button>
-      <button ng-if="!group.included" ng-click="display.changesNotMade = false; term.groupObj.addGroup(group.name)" class="btn btn-default">+</button>
-    </div>
+  <img src="http://modernmeadow.com/images/logo.png" width='200'>
+  <h3>Making Leather and Meat Better</h3>
+  <p>Modern Meadow applies the latest advances in tissue engineering to develop novel biomaterials to address some of our most pressing global challenges. We develop cultured leather and meat products which require no animal slaughter and much lower inputs of land, water, energy and chemicals.</p>
+
+  <p>Website: <a href="http://modernmeadow.com/">http://modernmeadow.com/</a></p>
 </div>
 <div class="modal-footer">
 	<button class="btn btn-primary" ng-disabled="display.changesNotMade" ng-click="saveChanges()">Save Changes</button>

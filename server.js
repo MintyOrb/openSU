@@ -63,14 +63,15 @@ Passport.deserializeUser(function (obj, done) {
 // routes
 server.route([        
 
+    //serve index as entry point into angular app
+    { method: 'GET', path: '/', handler: {file: './public/app/index.html'} },
+    { method: 'GET', path: '/{path*}', handler: {file: './public/app/index.html'} },
+
 	//resource routes
     { method: 'GET', path: '/bower_components/{path*}', handler: { directory: { path: './public/bower_components/' } } },
     { method: 'GET', path: '/resources/{path*}', handler: { directory: { path: './public/resources/' } } }, 
     { method: 'GET', path: '/app/{path*}', handler: { directory: { path: './public/app/' } } },
     { method: 'GET', path: '/img/{path*}', handler: { directory: { path: './public/img/' } } },
-
-    //serve index as entry point into angular app
-    { method: 'GET', path: '/{path*}', handler: {file: './public/app/index.html'} },
 
     //auth routes
     { method: 'POST', path: '/login', config: {
